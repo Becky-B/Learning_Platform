@@ -2,6 +2,9 @@ from django.shortcuts import render, redirect
 from login.models import User, Student
 from django.contrib import messages
 
+def index(request):
+    return render(request, "parent_home.html")
+
 def add_student(request, user_id):
     user = User.objects.get(id=request.session['user_id'])
     Student.objects.create(

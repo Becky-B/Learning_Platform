@@ -17,4 +17,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path('', include('login.urls')),
+    path('platform', include('LearnApp.urls')),
 ]
