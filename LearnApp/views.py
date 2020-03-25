@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from login.models import User, Student
+from login.models import User, Student, Reading
 from django.contrib import messages
 
 def add_student(request, user_id):
@@ -15,8 +15,11 @@ def add_student(request, user_id):
     return redirect('/')
 
 def st_patty(request):
-    errors = User.objects.st_patty_validator(request.POST)
+    errors = Reading.objects.st_patty(request.POST)
     if len(errors) > 0:
         for key, value in errors.items():
             messages.error(request, value)
+        # redirect back to short1.html
         return redirect('/')
+        # redirect to Good job page.
+    return redirect('/')
