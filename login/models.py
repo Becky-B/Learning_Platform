@@ -1,4 +1,5 @@
 from django.db import models
+from LearnApp.models import Student
 from datetime import datetime
 import re
 import bcrypt
