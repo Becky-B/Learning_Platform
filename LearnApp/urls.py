@@ -11,6 +11,7 @@ urlpatterns = [
     path('/social_studies', views.history),
     path('/student_info', views.student_info),
     path('/add_student/<int:user_id>', views.add_student),
+    path('/delete_student/<int:student_id>', views.delete_student),
     # OUR GENERIC VALIDATOR
     path('/validate', views.generic_validator)
 ]
