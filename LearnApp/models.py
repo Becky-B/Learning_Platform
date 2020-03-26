@@ -4,13 +4,13 @@ class Answer_manager(models.Manager):
     def st_patty(self, postData): 
         errors = {}
 
-        if postData['question1'] != 3:
+        if postData['question1'] != '3':
             errors['question1'] = "Question 1 is incorrect."
-        if postData['question2'] != 1:
+        if postData['question2'] != '1':
             errors['question2'] = "Question 2 is incorrect."
-        if postData['question3'] != 2:
+        if postData['question3'] != '2':
             errors['question3'] = "Question 3 is incorrect."
-        if postData['question4'] != 3:
+        if postData['question4'] != '3':
             errors['question4'] = "Question 4 is incorrect."
 
         return errors

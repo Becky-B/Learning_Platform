@@ -47,8 +47,18 @@
                 </div>
             </div>
         </div>
+        <div class="col-sm">
+            {% if messages %}
+            <ul class="messages">    
+                {% for message in messages %}    
+                    <li {% if message.tags %} class="{{ message.tags }} text-danger"{% endif %}>{{ message }}</li>    
+                {% endfor %}
+            </ul>
+            {% endif %}
+            </div>
+
             <div class="col sm">
-                <form action="/something" method="POST">
+                <form action="/platform/st_patty" method="POST">
                 {% csrf_token %}
                 <div class="question1 mt-5">
                     <p>The holiday was dated back to:</p>
