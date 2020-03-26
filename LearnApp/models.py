@@ -65,8 +65,6 @@ class Answer_manager(models.Manager):
 
         return errors
 
-<<<<<<< HEAD
-=======
     def earth_quiz(self, postData):
         errors = {}
         if postData['question1'] != '2':
@@ -79,7 +77,6 @@ class Answer_manager(models.Manager):
             errors['question4'] = 'Question 4 is incorrect'
 
         return errors
->>>>>>> ed77d9e095ad2fb0e313d9826f178b62b66e6f01
 class Student(models.Model):
     name = models.TextField(max_length=15)
     # user
