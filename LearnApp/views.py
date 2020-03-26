@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from login.models import User, Student
-from .models import Reading
+from login.models import User
+from .models import Reading, Student
 from django.contrib import messages
 
 def index(request):
@@ -40,7 +40,11 @@ def declaration(request):
     return render(request, 'declaration.html')
 
 def student_info(request):
-    return render(request, 'student_info.html')
+    students = User.student
+    context = {
+                'student': students
+    }
+    return render(request, 'student_info.html', context)
 
 
 

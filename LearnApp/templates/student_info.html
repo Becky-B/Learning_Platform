@@ -26,7 +26,12 @@
     </nav>
     <div class="container">
         <div class="row">
-            
+            {% for student in students %}
+            <ul>
+                <li>Student Name: {{student.name}}</li>
+                <li>Grade: {{student.grade}}</li>
+            </ul>
+            {% endfor %}
         </div>
     </div>
 </body>

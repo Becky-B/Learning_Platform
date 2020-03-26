@@ -65,19 +65,11 @@ class User_manager(models.Manager):
         return errors     
 
 
-class Student(models.Model):
-    name = models.TextField(max_length=15)
-    #user = User
-    birthdate = models.DateTimeField()
-    grade = models.CharField(max_length=2)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
 
 
 class User(models.Model):
     name = models.TextField(max_length=45)
-    birth_date = models.DateField()
-    student = models.ForeignKey(Student, related_name="user", on_delete = models.CASCADE, blank=True, null=True)
+    #student
     email = models.CharField(max_length=25)
     password = models.CharField(max_length=65)
     created_at = models.DateTimeField(auto_now_add=True)
