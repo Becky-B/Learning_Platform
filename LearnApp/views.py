@@ -21,17 +21,11 @@ def add_student(request, user_id):
     # !!!!!!!!!!!!!!!!!!!!!!!
     return redirect('/')
 
-<<<<<<< HEAD
-def st_patty(request):
-    print(request.POST['question1'])
-    print(request.POST['question2'])
-    print(request.POST['question3'])
-    print(request.POST['St. Patrick'])
-
-    errors = Reading.objects.st_patty(request.POST)
-=======
 def st_patty_page(request):
     return render(request, "short1.html")
+
+def earth_page(request):
+    return render(request, 'earth.html')
 
 def history(request):
     return render(request, 'history.html')
@@ -45,6 +39,11 @@ def white_house(request):
 def declaration(request):
     return render(request, 'declaration.html')
 
+def student_info(request):
+    return request(request, 'student_info.html')
+
+
+
 def generic_validator(request):
     print("   ")
     print("   ")
@@ -54,20 +53,10 @@ def generic_validator(request):
     reading = Reading.objects
     errors = getattr(reading, request.POST['validator'])(request.POST)
 
->>>>>>> 87bec6f33932028cf6bd289495183b326c190e45
     if len(errors) > 0:
         for key, value in errors.items():
             messages.error(request, value, extra_tags=key)
         # redirect back to short1.html
-<<<<<<< HEAD
-        return redirect('/platform/reading')
-        # redirect to Good job page.
-    return redirect('/platform/reading')
-
-def st_patty_page(request):
-    return render(request, 'short1.html')
-=======
         return redirect(f'/platform/{request.POST["validator"]}_page')
         # redirect to Good job page.
     return redirect(f'/platform/{request.POST["validator"]}_page')
->>>>>>> 87bec6f33932028cf6bd289495183b326c190e45
