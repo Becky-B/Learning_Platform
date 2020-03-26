@@ -24,12 +24,12 @@
             <a class="btn btn-dark" href="/logout">Log Out</a>
         </div>
     </nav>
-    <div class="container">
+    <div class="container quiz-page">
         <div class="row">
             <div class="col-sm text-center mt-5">
                 <h4>The Planet Earth</h4>
                 <div class="mt-4">
-                    <p>Earth is the third planet in the solar system. It’s the only
+                    <p class="quiz-description">Earth is the third planet in the solar system. It’s the only
                         planet known to support an atmosphere with oxygen,
                         oceans of liquid water on the surface and life. The planet
                         is 70% covered in water. Earth has a molten core which
@@ -43,6 +43,7 @@
             <form action="/platform/validate" method="POST">
                 {% csrf_token %}
                 <div class="question1 mt-5">
+                    <div class="quiz-question-name">How many moons does the earth have?</div>
                     {% if messages %}
                     <div class="col-sm-12">
                         {% for message in messages %}
@@ -52,7 +53,6 @@
                         {% endfor %}
                     </div>
                     {% endif %}
-                    <p>How many moons does the earth have?</p>
                     <input type="radio" id="q1a1" name="question1" value="1">
                     <label for="q1a1">648.</label><br>
                     <input type="radio" id="q1a2" name="question1" value="2">
@@ -61,6 +61,7 @@
                     <label for="q1a3">2.</label><br>
                 </div>
                 <div class="question2 mt-5">
+                    <div class="quiz-question-name">Why does the planet have a magnetic field:</div>
                     {% if messages %}
                     <div class="col-sm-12">
                         {% for message in messages %}
@@ -70,7 +71,6 @@
                         {% endfor %}
                     </div>
                     {% endif %}
-                    <p>Why does the planet have a magnetic field:</p>
                     <input type="radio" id="q2a1" name="question2" value="1">
                     <label for="q2a1">Because of it's molten core.</label><br>
                     <input type="radio" id="q2a2" name="question2" value="2">
@@ -79,6 +79,7 @@
                     <label for="q2a3">From the oxygen in the atmosphere.</label><br>
                 </div>
                 <div class="question3 mt-5">
+                    <div class="quiz-question-name"> How long does it take to orbit the sun?</div>
                     {% if messages %}
                     <div class="col-sm-12">
                         {% for message in messages %}
@@ -88,7 +89,6 @@
                         {% endfor %}
                     </div>
                     {% endif %}
-                    <p> How long does it take to orbit the sun?</p>
                     <input type="radio" id="q3a1" name="question3" value="1">
                     <label for="q3a1">One day.</label><br>
                     <input type="radio" id="q3a2" name="question3" value="2">
@@ -97,6 +97,7 @@
                     <label for="q3a3">365 days.</label><br>
                 </div>
                 <div class="question4 mt-5">
+                    <div class="quiz-question-name">The earth is 75% water.</div>
                     {% if messages %}
                     <div class="col-sm-12">
                         {% for message in messages %}
@@ -106,7 +107,6 @@
                         {% endfor %}
                     </div>
                     {% endif %}
-                    <p>The earth is 75% water.</p>
                     <input type="radio" id="q4a1" name="question4" value="1">
                     <label for="q4a1">True</label><br>
                     <input type="radio" id="q4a2" name="question4" value="2">
