@@ -68,14 +68,12 @@ def add_student(request, user_id):
     )
     return redirect('/platform/student_info')
 
-<<<<<<< HEAD
 def delete_student(request, student_id):
     our_student = Student.objects.get(id=student_id)
     our_student.delete()
     return redirect('/platform/student_info')
 
 
-=======
 def account_info(request):
     user_id = request.session['user_id']
     if request.method == 'POST':
@@ -91,7 +89,6 @@ def account_info(request):
             'our_user': User.objects.get(id=user_id)
         }
         return render(request, "accountinfo.html", context)
->>>>>>> 5478700f3dd7949e9f3fda6fdfd8f530ba91df18
 
 def generic_validator(request):
     reading = Reading.objects
