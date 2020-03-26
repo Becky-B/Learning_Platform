@@ -40,13 +40,36 @@ def declaration(request):
     return render(request, 'declaration.html')
 
 def student_info(request):
-    students = User.student
+    our_user = User.objects.get(id=request.session['user_id'])
     context = {
-                'student': students
+                'user': our_user
     }
     return render(request, 'student_info.html', context)
 
+def add_student(request, user_id):
+    our_user = User.objects.get(id=user_id)
+    Student.objects.create(
+                            name = request.POST['name'],
+                            user = our_user,
+                            grade = request.POST['grade']
+    )
+    return redirect('/platform/student_info')
 
+def account_info(request):
+    user_id = request.session['user_id']
+    if request.method == 'POST':
+        user = User.objects.get(id=user_id)
+        user.name= request.POST['name']
+        user.email = request.POST['email']
+        user.password = request.POST['password']
+        user.confirm_password = request.POST['confirm_password']
+        user.save()
+        return redirect('/platform/account_info')
+    else:
+        context = {
+            'our_user': User.objects.get(id=user_id)
+        }
+        return render(request, "accountinfo.html", context)
 
 def generic_validator(request):
     reading = Reading.objects

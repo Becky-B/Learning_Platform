@@ -30,12 +30,6 @@ class User_manager(models.Manager):
         if len(email) > 0:
             errors['email'] = "This email address is already registered."
         
-        try:# Start date should be in the future
-            if datetime.strptime(postData['birth_date'], "%Y-%m-%d").date() >= datetime.now().date():
-                errors['birth_date'] = "Birth date should be in the past"
-        except:
-                errors['birth_date'] = "Somtehing wrong with you birth date, maybe it is empty?"
-
 
 
         # password validation
