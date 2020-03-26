@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Info</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet"> {% load static %}
+    <link rel="stylesheet" href="{% static 'style/style.css' %}">
+    <script src="https://kit.fontawesome.com/cd307cb601.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg_main">
+        <div class="col-sm">
+            Welcome, {{user.name}}!
+        </div>
+        <div class="col-sm-2">
+            <a class="btn btn-dark" href="/platform">Back</a>
+        </div>
+        <div class="col-sm-2">
+            <a class="btn btn-dark" href="/logout">Log Out</a>
+        </div>
+    </nav>
+    <div class='container h-100'>
+        <div class='row'>
+            <div class="col-sm-3">
+                <ul class="main-nav">
+                    <li class="active">Home</li>
+                    <li>Account Info</li>
+                    <li><a href="/platform/student_info"> Student Info</a></li>
+                    <li>Cirriculum</li>
+                    <li>Grades</li>
+                </ul>
+            </div> 
+            <div class='account col-sm-5'>
+                <form action='/platform/account_info' method='POST'>
+                    {% csrf_token %}
+                <div class="form-group">
+                    <label for="name">Name: </label>
+                    <input type="text" class="form-control" id='name' value='{{our_user.name}}' name='name'>
+                </div>
+                <div class="form-group">
+                    <label for='email'>Email: </label>
+                    <input type='email' class="form-control" id="email" value='{{our_user.email}}' name='email'>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password: </label>
+                    <input type="password" class='form-control' id='password' value='' name='password'>
+                </div>
+                <div class="form-group">
+                    <label for="confirm_password">Password: </label>
+                    <input type="password" class='form-control' id='confirm_password' value='' name='confirm_password'>
+                </div>
+                <br>
+                <button class="btn btn-dark" type="submit">Edit</button>
+                <br>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    
+</body>
+</html>

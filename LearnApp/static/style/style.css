@@ -222,3 +222,14 @@ nav.navbar .btn {
 
 
 /* UTILITIES END */
+
+/* ACCOUNT PAGE  */
+
+.account .btn {
+    font-size: 1.6rem;
+}
+.account label{
+    font-size: 2rem;
+}
+
+/* ACCOUNT PAGE END */
