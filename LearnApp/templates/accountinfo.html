@@ -26,15 +26,15 @@
         <div class='row'>
             <div class="col-sm-3">
                 <ul class="main-nav">
-                    <li class="active">Home</li>
-                    <li>Account Info</li>
+                    <li><a href='/platform'>Home</a></li>
+                    <li><a href='/platform/account_info'>Account Info</a></li>
                     <li><a href="/platform/student_info"> Student Info</a></li>
                     <li>Cirriculum</li>
-                    <li>Grades</li>
+                    <li><a href='/platform/hands_on'>Hands-On</a></li>
                 </ul>
             </div> 
             <div class='account col-sm-5'>
-                <form action='/platform/account_info' method='POST'>
+                <form action='/account_info' method='POST'>
                     {% csrf_token %}
                 <div class="form-group">
                     <label for="name">Name: </label>

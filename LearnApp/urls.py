@@ -11,7 +11,12 @@ urlpatterns = [
     path('/social_studies', views.history),
     path('/student_info', views.student_info),
     path('/add_student/<int:user_id>', views.add_student),
+<<<<<<< HEAD
+    path('/account_info', views.account_info),
+    path('/hands_on', views.hands_on),
+=======
     path('/delete_student/<int:student_id>', views.delete_student),
+>>>>>>> e73b72a06f48a666ed4b99394e3957b6e3753997
     # OUR GENERIC VALIDATOR
     path('/validate', views.generic_validator)
 ]
