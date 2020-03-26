@@ -24,6 +24,9 @@ def add_student(request, user_id):
 def st_patty_page(request):
     return render(request, "short1.html")
 
+def earth_page(request):
+    return render(request, 'earth.html')
+
 def history(request):
     return render(request, 'history.html')
 
@@ -35,6 +38,11 @@ def white_house(request):
 
 def declaration(request):
     return render(request, 'declaration.html')
+
+def student_info(request):
+    return render(request, 'student_info.html')
+
+
 
 def generic_validator(request):
     reading = Reading.objects
