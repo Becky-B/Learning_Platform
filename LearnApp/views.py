@@ -98,7 +98,7 @@ def generic_validator(request):
         for key, value in errors.items():
             messages.error(request, value, extra_tags=key)
         # redirect back to short1.html
-        return redirect(f'/platform/{request.POST["validator"]}_page')
+        return redirect(f'/platform/{request.POST["validator"]}_page#form')
         # redirect to Good job page.
     return redirect(f'/platform/{request.POST["validator"]}_page')
 

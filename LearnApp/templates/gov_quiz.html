@@ -26,7 +26,7 @@
     <div class='container quiz-page'>
         <div class='row'>
             <div class='col-sm'>
-                <form action='/platform/validate' method='POST'>
+                <form id="form" action='/platform/validate' method='POST'>
                     {% csrf_token %}
                     <h3 class="quiz-description">This quiz is based off the Purpse for Government video. If you did not watch the video, please return to the previous page and watch the video. Now, please complete the quiz in full, and press the submit button.
                     </h3>
