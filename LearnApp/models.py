@@ -1,8 +1,5 @@
 from django.db import models
-<<<<<<< HEAD
 from login.models import User
-=======
->>>>>>> c0a6d209bbb01570d954abfb8536ed17583bfd30
 
 class Answer_manager(models.Manager):
     def st_patty(self, postData):
