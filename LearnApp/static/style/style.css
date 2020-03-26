@@ -1,3 +1,7 @@
+* {
+    font-family: 'Indie Flower', cursive;
+    font-weight: 600;
+}
 body {
     background-image: url('../images/main_bg.jpg');
     background-size: cover;
