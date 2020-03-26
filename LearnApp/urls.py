@@ -10,7 +10,7 @@ urlpatterns = [
     path('/earth_quiz_page', views.earth_page),
     path('/social_studies', views.history),
     path('/student_info', views.student_info),
-    path('/account_info', views.account_info),
+    path('/add_student/<int:user_id>', views.add_student),
     # OUR GENERIC VALIDATOR
     path('/validate', views.generic_validator)
 ]

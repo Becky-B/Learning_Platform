@@ -1,4 +1,5 @@
 from django.db import models
+from login.models import User
 
 class Answer_manager(models.Manager):
     def st_patty(self, postData):
@@ -21,7 +22,7 @@ class Answer_manager(models.Manager):
         if postData['question1'] != '3':
             errors['question1'] = 'Question 1 is incorrect'
         if postData['question2'] != '1':
-            errors['question2'] = 'Questio 2 is incorrect'
+            errors['question2'] = 'Question 2 is incorrect'
         if postData['question3'] != '3':
             errors['question3'] = 'Question 3 is incorrect'
         if postData['question4'] != '2':
@@ -37,7 +38,7 @@ class Answer_manager(models.Manager):
         if postData['question1'] != '2':
             errors['question1'] = 'Question 1 is incorrect'
         if postData['question2'] != '1':
-            errors['question2'] = 'Questio 2 is incorrect'
+            errors['question2'] = 'Question 2 is incorrect'
         if postData['question3'] != '2':
             errors['question3'] = 'Question 3 is incorrect'
         if postData['question4'] != '3':
@@ -53,7 +54,7 @@ class Answer_manager(models.Manager):
         if postData['question1'] != '1':
             errors['question1'] = 'Question 1 is incorrect'
         if postData['question2'] != '3':
-            errors['question2'] = 'Questio 2 is incorrect'
+            errors['question2'] = 'Question 2 is incorrect'
         if postData['question3'] != '1':
             errors['question3'] = 'Question 3 is incorrect'
         if postData['question4'] != '3':
@@ -70,7 +71,7 @@ class Answer_manager(models.Manager):
         if postData['question1'] != '2':
             errors['question1'] = 'Question 1 is incorrect'
         if postData['question2'] != '1':
-            errors['question2'] = 'Questio 2 is incorrect'
+            errors['question2'] = 'Question 2 is incorrect'
         if postData['question3'] != '3':
             errors['question3'] = 'Question 3 is incorrect'
         if postData['question4'] != '2':
@@ -78,12 +79,10 @@ class Answer_manager(models.Manager):
 
         return errors
 
-
 class Student(models.Model):
     name = models.TextField(max_length=15)
-    # user
+    user = models.ForeignKey(User, related_name="students", on_delete = models.CASCADE)
     # reading
-    birthdate = models.DateTimeField()
     grade = models.CharField(max_length=2)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

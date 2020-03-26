@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import User, Student
+from .models import User
 from django.contrib import messages
 import bcrypt
 
@@ -21,7 +21,6 @@ def register(request):
     User.objects.create(
                         name = request.POST['name'],
                         email = request.POST['email'],
-                        birth_date = request.POST['birth_date'],
                         password = pw_hash
 
     )
