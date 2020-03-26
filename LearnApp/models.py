@@ -1,5 +1,8 @@
 from django.db import models
+<<<<<<< HEAD
 from login.models import User
+=======
+>>>>>>> c0a6d209bbb01570d954abfb8536ed17583bfd30
 
 class Answer_manager(models.Manager):
     def st_patty(self, postData):
@@ -88,7 +91,6 @@ class Student(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     objects = Answer_manager()
 
-
 class Reading(models.Model):
     name = models.CharField(max_length=25)
     question1 = models.CharField(max_length=1)
@@ -97,42 +99,5 @@ class Reading(models.Model):
     question4 = models.CharField(max_length=1)
     student = models.ManyToManyField(Student, related_name="reading")
     created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-    objects = Answer_manager()
-
-
-class Gov_Quiz(models.Model):
-    name = models.CharField(max_length=20)
-    question1 = models.CharField(max_length=5)
-    question2 = models.CharField(max_length=5)
-    question3 = models.CharField(max_length=5)
-    question4 = models.CharField(max_length=5)
-    question5 = models.CharField(max_length=5)
-    created_at = models.DateTimeField(auto_now=True)
-    updated_at = models.DateTimeField(auto_now=True)
-    objects = Answer_manager()
-
-
-class White_House_Quiz(models.Model):
-    name = models.CharField(max_length=20)
-    question1 = models.CharField(max_length=5)
-    question2 = models.CharField(max_length=5)
-    question3 = models.CharField(max_length=5)
-    question4 = models.CharField(max_length=5)
-    question5 = models.CharField(max_length=5)
-    created_at = models.DateTimeField(auto_now=True)
-    updated_at = models.DateTimeField(auto_now=True)
-    objects = Answer_manager()
-
-
-class Declaration_Quiz(models.Model):
-    name = models.CharField(max_length=20)
-    question1 = models.CharField(max_length=5)
-    question2 = models.CharField(max_length=5)
-    question3 = models.CharField(max_length=5)
-    question4 = models.CharField(max_length=5)
-    question5 = models.CharField(max_length=5)
-    question6 = models.CharField(max_length=5)
-    created_at = models.DateTimeField(auto_now=True)
     updated_at = models.DateTimeField(auto_now=True)
     objects = Answer_manager()

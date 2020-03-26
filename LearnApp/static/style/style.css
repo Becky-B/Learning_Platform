@@ -1,48 +1,123 @@
 * {
     font-family: 'Indie Flower', cursive;
     font-weight: 600;
+    color: #004575d1;
 }
+
 body {
     background-image: url('../images/main_bg.jpg');
     background-size: cover;
 }
+
 .bg_main {
     background-color: #a93e72!important;
 }
+
+
+/* NAVIGATION */
+
+nav.navbar {
+    font-size: 2rem;
+}
+
+nav.navbar .btn {
+    font-size: 1.6rem;
+}
+
+
+/* NAVIGATION END */
+
+
+/* SIDE NAVIGATION */
+
+.main-nav {
+    font-size: 2rem;
+    list-style: none;
+    padding: 0;
+}
+
+.main-nav li {
+    margin: 1rem 0;
+    padding-left: 1.3em;
+}
+
+.main-nav li:before {
+    content: "\f666";
+    /* FontAwesome Unicode */
+    font-family: FontAwesome;
+    display: inline-block;
+    margin-left: -1.3em;
+    /* same as padding-left set on li */
+    width: 1.3em;
+    /* same as padding-left set on li */
+}
+
+
+/* SIDE NAVIGATION END */
+
+.quiz-description {
+    margin: 2rem 0;
+    font-weight: 600;
+    font-size: 2rem;
+}
+
+.quiz-page label {
+    font-size: 1.6rem;
+}
+
+.quiz-question-name {
+    margin-top: .6rem;
+    font-size: 2rem;
+}
+
+.quiz-page .btn {
+    font-size: 2rem;
+    padding: 0 1.4rem;
+}
+
+
+/* HEXAGON MENU */
 
 .hex {
     margin-top: 70px;
     width: 208px;
     height: 120px;
-    background: #6C6;
+    background: #9e5b8e;
     position: relative;
 }
-.hex:before, .hex:after {
-    content:"";
+
+.hex:before,
+.hex:after {
+    content: "";
     border-left: 104px solid transparent;
     border-right: 104px solid transparent;
     position: absolute;
 }
+
 .hex:before {
     top: -59px;
     left: 0;
-    border-bottom: 60px solid #6C6;
+    border-bottom: 60px solid #9e5b8e;
 }
+
 .hex:after {
     bottom: -59px;
     left: 0px;
-    border-top: 60px solid #6C6;
+    border-top: 60px solid #9e5b8e;
 }
+
 .hex.inner {
-    background-color:white;
+    background-color: white;
     -webkit-transform: scale(.8, .8);
     -moz-transform: scale(.8, .8);
     transform: scale(.8, .8);
-    z-index:1;
+    z-index: 1;
 }
+
 .hex.inner:before {
     border-bottom: 60px solid white;
 }
+
 .hex.inner:after {
     border-top: 60px solid white;
 }
@@ -57,3 +132,93 @@ body {
     padding: 0;
     font-size: 1.6rem;
 }
+
+
+/* HEXAGON MENU END */
+
+
+/* RADIO BUTTON SECTION */
+
+[type="radio"]:checked,
+[type="radio"]:not(:checked) {
+    position: absolute;
+    left: -9999px;
+}
+
+[type="radio"]:checked+label,
+[type="radio"]:not(:checked)+label {
+    position: relative;
+    padding-left: 28px;
+    cursor: pointer;
+    line-height: 20px;
+    display: inline-block;
+}
+
+[type="radio"]:checked+label:before,
+[type="radio"]:not(:checked)+label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #ddd;
+    border-radius: 100%;
+    background: #fff;
+}
+
+[type="radio"]:checked+label:after,
+[type="radio"]:not(:checked)+label:after {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background: #F87DA9;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    border-radius: 100%;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+
+[type="radio"]:not(:checked)+label:after {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+
+[type="radio"]:checked+label:after {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+
+
+/* RADION BUTTON SECTION END */
+
+
+/* UTILITIES */
+
+.font-size-2 {
+    font-size: 2rem;
+}
+
+.font-size-3 {
+    font-size: 2rem;
+}
+
+.font-size-4 {
+    font-size: 2rem;
+}
+
+.font-size-5 {
+    font-size: 2rem;
+}
+
+.text-danger {
+    -webkit-text-stroke-width: 0.1px;
+    -webkit-text-stroke-color: black;
+}
+
+
+/* UTILITIES END */

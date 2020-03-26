@@ -5,10 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Declaration of Independance</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet">
-    {% load static %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet"> {% load static %}
     <link rel="stylesheet" href="{% static 'style/style.css' %}">
 </head>
 
@@ -21,28 +19,22 @@
             <a class="btn btn-dark" href="/platform/social_studies">Back</a>
         </div>
         <div class="col-sm-2">
-            <a class="btn btn-dark" href="/logout">Log Out</a>
+            <a class="btn btn-dark logout-btn" href="/logout">Log Out</a>
         </div>
     </nav>
-    <div class='container'>
+    <div class='container quiz-page'>
         <div class='row'>
             <div class='col-sm'>
                 <form action='/platform/validate' method='POST'>
                     {% csrf_token %}
-                    <h3>This quiz is based off the Declaration of Independance for Kids video. If you did not watch the
-                        video,
-                        please return to the previous page and watch the video. Now, please complete the quiz in full,
-                        and press the submit button.
+                    <h3 class="quiz-description">This quiz is based off the Declaration of Independance for Kids video. If you did not watch the video, please return to the previous page and watch the video. Now, please complete the quiz in full, and press the submit button.
                     </h3>
                     <br>
-                    <h6>1. Where is the Declaration of Indepence kept?</h6>
+                    <div class="quiz-description">1. Where is the Declaration of Indepence kept?</div>
                     {% if messages %}
                     <div class="col-sm-12">
-                        {% for message in messages %}
-                        {% if message.extra_tags == "question1" %}
-                        <span class="text-danger">{{message}}</span>
-                        {% endif %}
-                        {% endfor %}
+                        {% for message in messages %} {% if message.extra_tags == "question1" %}
+                        <span class="text-danger">{{message}}</span> {% endif %} {% endfor %}
                     </div>
                     {% endif %}
                     <input type='radio' id='q1a1' name='question1' value='1'>
@@ -51,14 +43,11 @@
                     <label for='q1a2'> Independence Hall</label><br>
                     <input type='radio' id='q1a3' name='question1' value='3'>
                     <label for='q1a3'> The White House</label><br>
-                    <h6>2. Great Britain had how many colonies in America?</h6>
+                    <div class="quiz-description">2. Great Britain had how many colonies in America?</div>
                     {% if messages %}
                     <div class="col-sm-12">
-                        {% for message in messages %}
-                        {% if message.extra_tags == "question2" %}
-                        <span class="text-danger">{{message}}</span>
-                        {% endif %}
-                        {% endfor %}
+                        {% for message in messages %} {% if message.extra_tags == "question2" %}
+                        <span class="text-danger">{{message}}</span> {% endif %} {% endfor %}
                     </div>
                     {% endif %}
                     <input type='radio' id='q2a1' name='question2' value='1'>
@@ -67,14 +56,11 @@
                     <label for='q2a2'> 12</label><br>
                     <input type='radio' id='q2a3' name='question2' value='3'>
                     <label for='q2a3'> 13</label><br>
-                    <h6>3. Who was the main author of the Declaration of Independence?</h6>
+                    <div class="quiz-description">3. Who was the main author of the Declaration of Independence?</div>
                     {% if messages %}
                     <div class="col-sm-12">
-                        {% for message in messages %}
-                        {% if message.extra_tags == "question3" %}
-                        <span class="text-danger">{{message}}</span>
-                        {% endif %}
-                        {% endfor %}
+                        {% for message in messages %} {% if message.extra_tags == "question3" %}
+                        <span class="text-danger">{{message}}</span> {% endif %} {% endfor %}
                     </div>
                     {% endif %}
                     <input type='radio' id='q3a1' name='question3' value='1'>
@@ -83,15 +69,12 @@
                     <label for='q3a2'> Benjamin Franklin</label><br>
                     <input type='radio' id='q3a3' name='question3' value='3'>
                     <label for='q3a3'> John Adams</label><br>
-                    <h6>4. When the committee presented the Declaration on June 28, 1776, it was originally named...?
-                    </h6>
+                    <div class="quiz-description">4. When the committee presented the Declaration on June 28, 1776, it was originally named...?
+                    </div>
                     {% if messages %}
                     <div class="col-sm-12">
-                        {% for message in messages %}
-                        {% if message.extra_tags == "question4" %}
-                        <span class="text-danger">{{message}}</span>
-                        {% endif %}
-                        {% endfor %}
+                        {% for message in messages %} {% if message.extra_tags == "question4" %}
+                        <span class="text-danger">{{message}}</span> {% endif %} {% endfor %}
                     </div>
                     {% endif %}
                     <input type='radio' id='q4a1' name='question4' value='1'>
@@ -102,14 +85,11 @@
                     <input type='radio' id='q4a3' name='question4' value='3'>
                     <label for='q4a3'> a Declaration by the Representatives of the Unites States of America in General
                         Congress Assembly</label><br>
-                    <h6>5. Who was the first person to sign the Declaration of Independence?</h6>
+                    <div class="quiz-description">5. Who was the first person to sign the Declaration of Independence?</div>
                     {% if messages %}
                     <div class="col-sm-12">
-                        {% for message in messages %}
-                        {% if message.extra_tags == "question5" %}
-                        <span class="text-danger">{{message}}</span>
-                        {% endif %}
-                        {% endfor %}
+                        {% for message in messages %} {% if message.extra_tags == "question5" %}
+                        <span class="text-danger">{{message}}</span> {% endif %} {% endfor %}
                     </div>
                     {% endif %}
                     <input type='radio' id='q5a1' name='question5' value='1'>
@@ -118,14 +98,11 @@
                     <label for='q5a2'> John Hancock </label><br>
                     <input type='radio' id='q5a3' name='question5' value='3'>
                     <label for='q5a3'> George Washington</label><br>
-                    <h6>5. How many people signed the Declaration of Independence?</h6>
+                    <div class="quiz-description">6. How many people signed the Declaration of Independence?</div>
                     {% if messages %}
                     <div class="col-sm-12">
-                        {% for message in messages %}
-                        {% if message.extra_tags == "question6" %}
-                        <span class="text-danger">{{message}}</span>
-                        {% endif %}
-                        {% endfor %}
+                        {% for message in messages %} {% if message.extra_tags == "question6" %}
+                        <span class="text-danger">{{message}}</span> {% endif %} {% endfor %}
                     </div>
                     {% endif %}
                     <input type='radio' id='q6a1' name='question6' value='1'>

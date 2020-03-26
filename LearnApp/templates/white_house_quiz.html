@@ -5,10 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>White House Quiz</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet">
-    {% load static %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet"> {% load static %}
     <link rel="stylesheet" href="{% static 'style/style.css' %}">
 </head>
 
@@ -24,24 +22,19 @@
             <a class="btn btn-dark" href="/logout">Log Out</a>
         </div>
     </nav>
-    <div class='container'>
+    <div class='container  quiz-page'>
         <div class='row'>
             <div class='col-sm'>
                 <form action='/platform/validate' method='POST'>
                     {% csrf_token %}
-                    <h3>This quiz is based off the White House for Kids video. If you did not watch the video,
-                        please return to the previous page and watch the video. Now, please complete the quiz in full,
-                        and press the submit button.
+                    <h3 class="quiz-description">This quiz is based off the White House for Kids video. If you did not watch the video, please return to the previous page and watch the video. Now, please complete the quiz in full, and press the submit button.
                     </h3>
                     <br>
-                    <h6>1. What does the D.C. in Washington D.C. stand for?</h6>
+                    <div class="quiz-description">1. What does the D.C. in Washington D.C. stand for?</div>
                     {% if messages %}
                     <div class="col-sm-12">
-                        {% for message in messages %}
-                        {% if message.extra_tags == "question1" %}
-                        <span class="text-danger">{{message}}</span>
-                        {% endif %}
-                        {% endfor %}
+                        {% for message in messages %} {% if message.extra_tags == "question1" %}
+                        <span class="text-danger">{{message}}</span> {% endif %} {% endfor %}
                     </div>
                     {% endif %}
                     <input type='radio' id='q1a1' name='question1' value='1'>
@@ -50,14 +43,11 @@
                     <label for='q1a2'> District of Columbia</label><br>
                     <input type='radio' id='q1a3' name='question1' value='3'>
                     <label for='q1a3'> Dunder Capitol</label><br>
-                    <h6>2. Which president is the only president who did not live and work in the White House?</h6>
+                    <div class="quiz-description">2. Which president is the only president who did not live and work in the White House?</div>
                     {% if messages %}
                     <div class="col-sm-12">
-                        {% for message in messages %}
-                        {% if message.extra_tags == "question2" %}
-                        <span class="text-danger">{{message}}</span>
-                        {% endif %}
-                        {% endfor %}
+                        {% for message in messages %} {% if message.extra_tags == "question2" %}
+                        <span class="text-danger">{{message}}</span> {% endif %} {% endfor %}
                     </div>
                     {% endif %}
                     <input type='radio' id='q2a1' name='question2' value='1'>
@@ -66,14 +56,11 @@
                     <label for='q2a2'> Theadore Roosevelt</label><br>
                     <input type='radio' id='q2a3' name='question2' value='3'>
                     <label for='q2a3'> James Madison</label><br>
-                    <h6>3. Which president officially named the residence, the White House?</h6>
+                    <div class="quiz-description">3. Which president officially named the residence, the White House?</div>
                     {% if messages %}
                     <div class="col-sm-12">
-                        {% for message in messages %}
-                        {% if message.extra_tags == "question3" %}
-                        <span class="text-danger">{{message}}</span>
-                        {% endif %}
-                        {% endfor %}
+                        {% for message in messages %} {% if message.extra_tags == "question3" %}
+                        <span class="text-danger">{{message}}</span> {% endif %} {% endfor %}
                     </div>
                     {% endif %}
                     <input type='radio' id='q3a1' name='question3' value='1'>
@@ -82,14 +69,11 @@
                     <label for='q3a2'> Theadore Roosevelt</label><br>
                     <input type='radio' id='q3a3' name='question3' value='3'>
                     <label for='q3a3'> George Washington</label><br>
-                    <h6>4. Which war was happening when the White House was set on fire?</h6>
+                    <div class="quiz-description">4. Which war was happening when the White House was set on fire?</div>
                     {% if messages %}
                     <div class="col-sm-12">
-                        {% for message in messages %}
-                        {% if message.extra_tags == "question4" %}
-                        <span class="text-danger">{{message}}</span>
-                        {% endif %}
-                        {% endfor %}
+                        {% for message in messages %} {% if message.extra_tags == "question4" %}
+                        <span class="text-danger">{{message}}</span> {% endif %} {% endfor %}
                     </div>
                     {% endif %}
                     <input type='radio' id='q4a1' name='question4' value='1'>
@@ -98,14 +82,11 @@
                     <label for='q4a2'> The French and Indian War</label><br>
                     <input type='radio' id='q4a3' name='question4' value='3'>
                     <label for='q4a3'> The War of 1812</label><br>
-                    <h6>5. What is the address for the White House?</h6>
+                    <div class="quiz-description">5. What is the address for the White House?</div>
                     {% if messages %}
                     <div class="col-sm-12">
-                        {% for message in messages %}
-                        {% if message.extra_tags == "question5" %}
-                        <span class="text-danger">{{message}}</span>
-                        {% endif %}
-                        {% endfor %}
+                        {% for message in messages %} {% if message.extra_tags == "question5" %}
+                        <span class="text-danger">{{message}}</span> {% endif %} {% endfor %}
                     </div>
                     {% endif %}
                     <input type='radio' id='q5a1' name='question5' value='1'>

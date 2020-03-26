@@ -49,11 +49,6 @@ def student_info(request):
 
 
 def generic_validator(request):
-    print("   ")
-    print("   ")
-    print("VALIDATING")
-    print("   ")
-    print("   ")
     reading = Reading.objects
     errors = getattr(reading, request.POST['validator'])(request.POST)
 
