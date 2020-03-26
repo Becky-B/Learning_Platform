@@ -26,12 +26,32 @@
     </nav>
     <div class="container">
         <div class="row">
-            {% for student in students %}
-            <ul>
-                <li>Student Name: {{student.name}}</li>
-                <li>Grade: {{student.grade}}</li>
-            </ul>
-            {% endfor %}
+            <div class="col-sm mt-5">
+                <h4>Current Students</h4>
+                {% for student in user.students.all %}
+                <ul>
+                    <li>Student Name: {{student.name}}</li>
+                    <li>Grade: {{student.grade}}</li>
+                </ul>
+                {% endfor %}
+            </div>
+            <div class="col-sm mt-5">
+                <h4>Add a Student</h4>
+                <form action="/platform/add_student/{{user.id}}" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="name">Student's Name:</label>
+                        <input type="text" class="form-control" id="name" name="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Grade:</label>
+                        <input type="text" class="form-control" id="email" name="grade">
+                    </div>
+                    <div class="button">
+                        <button type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </body>

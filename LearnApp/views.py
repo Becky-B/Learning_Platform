@@ -40,11 +40,20 @@ def declaration(request):
     return render(request, 'declaration.html')
 
 def student_info(request):
-    students = User.student
+    our_user = User.objects.get(id=request.session['user_id'])
     context = {
-                'student': students
+                'user': our_user
     }
     return render(request, 'student_info.html', context)
+
+def add_student(request, user_id):
+    our_user = User.objects.get(id=user_id)
+    Student.objects.create(
+                            name = request.POST['name'],
+                            user = our_user,
+                            grade = request.POST['grade']
+    )
+    return redirect('/platform/student_info')
 
 
 
