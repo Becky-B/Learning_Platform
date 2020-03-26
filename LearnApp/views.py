@@ -9,35 +9,48 @@ def index(request):
     }
     return render(request, "parent_home.html", context)
 
-def add_student(request, user_id):
-    user = User.objects.get(id=request.session['user_id'])
-    Student.objects.create(
-                            name = request.POST['name'],
-                            user = user,
-                            grade = request.POST['grade']
-    )
-    # !!!!!!!!!!!!!!!!!!!!!!
-    # Redirect blank
-    # !!!!!!!!!!!!!!!!!!!!!!!
-    return redirect('/')
 
 def st_patty_page(request):
-    return render(request, "short1.html")
+    student = Student.objects.get(id=1)
+    context = {
+                'student': student
+    }
+    return render(request, "short1.html", context)
 
 def earth_page(request):
-    return render(request, 'earth.html')
+    student = Student.objects.get(id=1)
+    context = {
+                'student': student
+    }
+    return render(request, 'earth.html', context)
 
 def history(request):
-    return render(request, 'history.html')
+    student = Student.objects.get(id=1)
+    context = {
+                'student': student
+    }
+    return render(request, 'history.html', context)
 
 def gov_quiz(request):
-    return render(request,'gov_quiz.html')
+    student = Student.objects.get(id=1)
+    context = {
+                'student': student
+    }
+    return render(request,'gov_quiz.html', context)
 
 def white_house(request):
-    return render(request, 'white_house_quiz.html')
+    student = Student.objects.get(id=1)
+    context = {
+                'student': student
+    }
+    return render(request, 'white_house_quiz.html', context)
 
 def declaration(request):
-    return render(request, 'declaration.html')
+    student = Student.objects.get(id=1)
+    context = {
+                'student': student
+    }
+    return render(request, 'declaration.html', context)
 
 def student_info(request):
     our_user = User.objects.get(id=request.session['user_id'])
@@ -54,6 +67,12 @@ def add_student(request, user_id):
                             grade = request.POST['grade']
     )
     return redirect('/platform/student_info')
+
+def delete_student(request, student_id):
+    our_student = Student.objects.get(id=student_id)
+    our_student.delete()
+    return redirect('/platform/student_info')
+
 
 def account_info(request):
     user_id = request.session['user_id']
