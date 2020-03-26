@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,16 +11,17 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
+
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="col-sm">
-            <h4 class="welcome_name">Reading Comprehension</h4>
+            Welcome, {{user.name}}!
         </div>
         <div class="col-sm-2">
-            <a href="books/add">Something here</a>
+            <a class="btn btn-dark" href="/platform">Back</a>
         </div>
         <div class="col-sm-2">
-            <a href="/logout">Log Out</a>
+            <a class="btn btn-dark" href="/logout">Log Out</a>
         </div>
     </nav>
     <div class="container">
@@ -28,29 +30,38 @@
                 <h4>The History of St. Patrick’s Day</h4>
                 <div class="mt-4">
                     <p>St. Patrick’s Day is a holiday celebrated each year on March 17th. Its origins
-                    date back to Ireland in 5th century. St. Patrick is the patron saint of Ireland.
-                    He was born in Roman Britain some time in the late 4th century, He was
-                    kidnapped at the age of 16 and taken as a slave to Ireland. He escaped
-                    years later and returned to Ireland and converted the Irish to Christianity.
-                    He died on March 17th, 461.</p>
+                        date back to Ireland in 5th century. St. Patrick is the patron saint of Ireland.
+                        He was born in Roman Britain some time in the late 4th century, He was
+                        kidnapped at the age of 16 and taken as a slave to Ireland. He escaped
+                        years later and returned to Ireland and converted the Irish to Christianity.
+                        He died on March 17th, 461.</p>
                     <p>Following Patrick’s death, legends grew around him saying that he drove the
-                    snakes out of Ireland but this was most likely a symbol of driving
-                    paganism out. Another legend is that he explained the Holy Trinity (Father,
-                    Son and Holy Spirit) using the three leaves of a native Irish clover, the
-                    shamrock.</p>
+                        snakes out of Ireland but this was most likely a symbol of driving
+                        paganism out. Another legend is that he explained the Holy Trinity (Father,
+                        Son and Holy Spirit) using the three leaves of a native Irish clover, the
+                        shamrock.</p>
                     <p>The first parade held to honor St. Patrick’s Day took place in the United
-                    States, not in Ireland. When the Potato Famine hit Ireland in 1845, about 1
-                    million Irish people came into the United States to escape starvation. The
-                    large Irish population would take part in the holiday to celebrate their
-                    heritage. Today, people of all backgrounds celebrate St. Patrick’s Day,
-                    mostly in Ireland, the United States, Canada. and Australia.</p>
+                        States, not in Ireland. When the Potato Famine hit Ireland in 1845, about 1
+                        million Irish people came into the United States to escape starvation. The
+                        large Irish population would take part in the holiday to celebrate their
+                        heritage. Today, people of all backgrounds celebrate St. Patrick’s Day,
+                        mostly in Ireland, the United States, Canada. and Australia.</p>
                 </div>
             </div>
         </div>
-            <div class="col sm">
-                <form action="/something" method="POST">
+        <div class="col sm">
+            <form action="/platform/validate" method="POST">
                 {% csrf_token %}
                 <div class="question1 mt-5">
+                    {% if messages %}
+                    <div class="col-sm-12">
+                        {% for message in messages %}
+                        {% if message.extra_tags == "question1" %}
+                        <span class="text-danger">{{message}}</span>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                    {% endif %}
                     <p>The holiday was dated back to:</p>
                     <input type="radio" id="q1a1" name="question1" value="1">
                     <label for="q1a1">1522.</label><br>
@@ -60,6 +71,15 @@
                     <label for="q1a3">The 5th century.</label><br>
                 </div>
                 <div class="question2 mt-5">
+                    {% if messages %}
+                    <div class="col-sm-12">
+                        {% for message in messages %}
+                        {% if message.extra_tags == "question2" %}
+                        <span class="text-danger">{{message}}</span>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                    {% endif %}
                     <p>St. Patrick returned to Ireland and:</p>
                     <input type="radio" id="q2a1" name="question2" value="1">
                     <label for="q2a1">Converted Ireland to Christianity.</label><br>
@@ -69,6 +89,15 @@
                     <label for="q2a3">Won Ireland's independence.</label><br>
                 </div>
                 <div class="question3 mt-5">
+                    {% if messages %}
+                    <div class="col-sm-12">
+                        {% for message in messages %}
+                        {% if message.extra_tags == "question3" %}
+                        <span class="text-danger">{{message}}</span>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                    {% endif %}
                     <p> He described the Holy Trinity using a:</p>
                     <input type="radio" id="q3a1" name="question3" value="1">
                     <label for="q3a1">glass of water</label><br>
@@ -78,6 +107,15 @@
                     <label for="q3a3">pot of gold coins</label><br>
                 </div>
                 <div class="question4 mt-5">
+                    {% if messages %}
+                    <div class="col-sm-12">
+                        {% for message in messages %}
+                        {% if message.extra_tags == "question4" %}
+                        <span class="text-danger">{{message}}</span>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                    {% endif %}
                     <p>The first St. Patrick’s parade was in:</p>
                     <input type="radio" id="q4a1" name="question4" value="1">
                     <label for="q4a1">Iraq</label><br>
@@ -87,10 +125,11 @@
                     <label for="q4a3">the United States</label><br>
                 </div>
                 <div class="submit mt-2">
-                    <button name="St. Patrick" value="St. Patrick" class="btn btn-dark">Submit</button>
+                    <button name="validator" value="st_patty" class="btn btn-dark">Submit</button>
                 </div>
             </form>
-            </div>
+        </div>
     </div>
-            </body>
+</body>
+
 </html>
