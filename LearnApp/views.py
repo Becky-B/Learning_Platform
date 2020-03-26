@@ -40,7 +40,7 @@ def declaration(request):
     return render(request, 'declaration.html')
 
 def student_info(request):
-    return request(request, 'student_info.html')
+    return render(request, 'student_info.html')
 
 
 
