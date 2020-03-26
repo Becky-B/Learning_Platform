@@ -11,44 +11,44 @@ def index(request):
 
 
 def st_patty_page(request):
-    student = Student.objects.get(id=1)
+    student = Student.objects.all()
     context = {
-                'student': student
+                'student': student[0]
     }
     return render(request, "short1.html", context)
 
 def earth_page(request):
-    student = Student.objects.get(id=1)
+    student = Student.objects.all()
     context = {
-                'student': student
+                'student': student[0]
     }
     return render(request, 'earth.html', context)
 
 def history(request):
-    student = Student.objects.get(id=1)
+    student = Student.objects.all()
     context = {
-                'student': student
+                'student': student[0]
     }
     return render(request, 'history.html', context)
 
 def gov_quiz(request):
-    student = Student.objects.get(id=1)
+    student = Student.objects.all()
     context = {
-                'student': student
+                'student': student[0]
     }
     return render(request,'gov_quiz.html', context)
 
 def white_house(request):
-    student = Student.objects.get(id=1)
+    student = Student.objects.all()
     context = {
-                'student': student
+                'student': student[0]
     }
     return render(request, 'white_house_quiz.html', context)
 
 def declaration(request):
-    student = Student.objects.get(id=1)
+    student = Student.objects.all()
     context = {
-                'student': student
+                'student': student[0]
     }
     return render(request, 'declaration.html', context)
 
