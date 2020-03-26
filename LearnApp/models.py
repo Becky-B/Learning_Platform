@@ -66,7 +66,18 @@ class Answer_manager(models.Manager):
 
         return errors
 
+    def earth_quiz(self, postData):
+        errors = {}
+        if postData['question1'] != '2':
+            errors['question1'] = 'Question 1 is incorrect'
+        if postData['question2'] != '1':
+            errors['question2'] = 'Questio 2 is incorrect'
+        if postData['question3'] != '3':
+            errors['question3'] = 'Question 3 is incorrect'
+        if postData['question4'] != '2':
+            errors['question4'] = 'Question 4 is incorrect'
 
+        return errors
 class Student(models.Model):
     name = models.TextField(max_length=15)
     # user
