@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="{% static 'style/style.css' %}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/cd307cb601.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -38,7 +39,7 @@
             <div class="col-sm mt-5">
                 <h4 class="quiz-description">Current Students</h4>
                 {% for student in user.students.all %}
-                <ul class="mt-2">
+                <ul class="students mt-2">
                     <li class="quiz-description">Student Name: {{student.name}}</li>
                     <li class="quiz-description">Grade: {{student.grade}}</li>
                 </ul>
@@ -56,11 +57,32 @@
                         <label for="email" class="quiz-description">Grade:</label>
                         <input type="text" class="form-control" id="email" name="grade">
                     </div>
-                    <div class="button">
+                    <div class="students button">
                         <button class="btn btn-info" type="submit">Submit</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
+    <script>
+        $(document).ready(function(){
+            $("").hide(0).show(1000);
+            $("#icon-text").hide(0);
+            $("#prj-text").hide(0);
+
+            $('.img').hover(
+                function() {
+                    $('#icon-text').show(1000);
+                // }, function() {
+                // $('#icon-text').hide(1000);
+                });
+                $('.prj-img').hover(
+                function() {
+                    $('#prj-text').show(900);
+                // }, function() {
+                // $('#prj-text').hide(1000);
+                });
+            
+        });
+    </script>
 </body>
