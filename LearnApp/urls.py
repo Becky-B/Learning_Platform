@@ -14,6 +14,7 @@ urlpatterns = [
     path('/account_info', views.account_info),
     path('/hands_on', views.hands_on),
     path('/delete_student/<int:student_id>', views.delete_student),
+    path('/success', views.success),
     # OUR GENERIC VALIDATOR
     path('/validate', views.generic_validator)
 ]

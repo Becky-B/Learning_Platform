@@ -100,7 +100,10 @@ def generic_validator(request):
         # redirect back to short1.html
         return redirect(f'/platform/{request.POST["validator"]}_page#form')
         # redirect to Good job page.
-    return redirect(f'/platform/{request.POST["validator"]}_page')
+    return redirect('/platform/success')
 
 def hands_on(request):
     return render(request, 'hands_on.html')
+
+def success(request):
+    return render(request,'success.html')
