@@ -103,7 +103,11 @@ def generic_validator(request):
     return redirect('/platform/success')
 
 def hands_on(request):
-    return render(request, 'hands_on.html')
+    student = Student.objects.all()
+    context = {
+                'student': student[0]
+    }
+    return render(request, 'hands_on.html', context)
 
 def success(request):
     return render(request,'success.html')
