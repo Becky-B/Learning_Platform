@@ -11,42 +11,42 @@ def index(request):
 
 
 def st_patty_page(request):
-    student = Student.objects.get(id=1)
+    student = Student.objects.get(id=5)
     context = {
                 'student': student
     }
     return render(request, "short1.html", context)
 
 def earth_page(request):
-    student = Student.objects.get(id=1)
+    student = Student.objects.get(id=5)
     context = {
                 'student': student
     }
     return render(request, 'earth.html', context)
 
 def history(request):
-    student = Student.objects.get(id=1)
+    student = Student.objects.get(id=5)
     context = {
                 'student': student
     }
     return render(request, 'history.html', context)
 
 def gov_quiz(request):
-    student = Student.objects.get(id=1)
+    student = Student.objects.get(id=5)
     context = {
                 'student': student
     }
     return render(request,'gov_quiz.html', context)
 
 def white_house(request):
-    student = Student.objects.get(id=1)
+    student = Student.objects.get(id=5)
     context = {
                 'student': student
     }
     return render(request, 'white_house_quiz.html', context)
 
 def declaration(request):
-    student = Student.objects.get(id=1)
+    student = Student.objects.get(id=5)
     context = {
                 'student': student
     }
@@ -100,7 +100,10 @@ def generic_validator(request):
         # redirect back to short1.html
         return redirect(f'/platform/{request.POST["validator"]}_page')
         # redirect to Good job page.
-    return redirect(f'/platform/{request.POST["validator"]}_page')
+    return redirect('/platform/success')
 
 def hands_on(request):
     return render(request, 'hands_on.html')
+
+def success(request):
+    return render(request,'success.html')
